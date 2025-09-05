@@ -46,7 +46,7 @@ class SignUpForm(UserCreationForm):
 					)
 
 #Create Add Record Form
-class AddRecordForm(forms.ModelForm):
+class AddRecordForm(forms.ModelForm): #inherits from forms.ModelForm (it is directly tied to a database model Record)
     first_name = forms.CharField(
         required=True,
         widget=forms.TextInput(attrs={"placeholder": "First Name", "class": "form-control"}),
@@ -89,6 +89,6 @@ class AddRecordForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Record
-        exclude = ("user",)
+        model = Record #The form is tied to the Record model (probably defined in models.py).
+        exclude = ("user",) #The user field from the model will NOT appear in the form.
     
